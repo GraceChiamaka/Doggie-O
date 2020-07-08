@@ -1,0 +1,29 @@
+.detail__content {
+    padding: 3rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 85px);
+}
+.detail__content h3 {
+    font-size: 60px;
+    font-family: "Manteka";
+}
+
+@media screen and (max-width: 1200px) {
+    .detail__content h3 {
+        font-size: 50px;
+    }
+}
+@media screen and (max-width: 1060px) {
+    .detail__content h3 {
+        font-size: 44px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .detail__content h3 {
+        font-size: 44px;
+    }
+}
