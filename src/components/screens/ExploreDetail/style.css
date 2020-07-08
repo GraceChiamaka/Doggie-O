@@ -8,6 +8,7 @@
 .detail__content h3 {
     font-size: 60px;
     font-family: "Manteka";
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 1200px) {
@@ -21,9 +22,13 @@
     }
 }
 
-
 @media screen and (max-width: 800px) {
     .detail__content h3 {
         font-size: 44px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .backdrop__container {
+        padding: 0 1rem;
     }
 }

@@ -49,13 +49,9 @@ const Navbar = ({ className }) => {
 						<li>
 							<Link to="/explore">Explore</Link>
 						</li>
+
 						<li>
-							<Link to="/contact" disabled>
-								Contact
-							</Link>
-						</li>
-						<li>
-							<Link to="/Doggies" disabled>
+							<Link to="/" disabled>
 								Doggies
 							</Link>
 						</li>
@@ -136,7 +132,7 @@ export default styled(Navbar)`
 						padding: 0.5rem 0;
 					}
 					&:hover {
-						background: #1d8179;
+						background: #ef0d33;
 						a {
 							color: #fff;
 						}

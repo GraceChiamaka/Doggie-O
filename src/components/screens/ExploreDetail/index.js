@@ -76,8 +76,11 @@ const ExploreDetailContent = ({ className }) => {
 				</div>
 			) : (
 				<Row>
-					<Col xs={{ span: 24, order: 2 }} md={{ order: 1, span: 14 }} lg={16}>
-						{displayDetails()}
+						<Col xs={{ span: 24, order: 2 }} md={{ order: 1, span: 14 }} lg={16}>
+							<div className="backdrop__container">
+								{displayDetails()}
+							</div>
+						
 					</Col>
 					<Col xs={{ span: 24, order: 1 }} md={{ span: 10, order: 2 }} lg={8}>
 						<>

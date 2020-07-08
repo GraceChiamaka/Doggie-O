@@ -12,4 +12,7 @@ const Backdrop = ({ className, imgURL }) => {
 
 export default styled(Backdrop)`
 	${(props) => generateBackgroundImg(props.imgURL)};
+	@media screen and (max-width: 575px) {
+		background-size: contain;
+	}
 `;

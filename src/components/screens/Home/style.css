@@ -7,7 +7,7 @@
     text-align: center;
     font-size: 80px;
 }
-.homepage__content .explore__btn{
+.homepage__content .explore__btn {
     border-radius: 0;
     padding: 1rem 2.5rem;
     border: none;
@@ -59,4 +59,13 @@
     -webkit-animation-name: hvr-ripple-out;
     animation-name: hvr-ripple-out;
     border: #e1e1e1 solid 6px;
+}
+
+@media screen and (max-width: 575px) {
+    .homepage__content {
+        padding: 3rem 0 ;
+    }
+    .homepage__content h1 {
+        font-size: 50px;
+    }
 }
