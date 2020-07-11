@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// import { wrap } from "module";
 export const baseURL = "https://dog.ceo/api/";
 
 export const makeApiCall = (axiosConfigObj) => {
@@ -24,6 +24,7 @@ export const makeApiCall = (axiosConfigObj) => {
 			});
 	});
 };
+
 
 export const getBreedAPI = () => {
 	return new Promise(async (resolve, reject) => {

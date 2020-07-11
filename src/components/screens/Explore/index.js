@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, message, Pagination, Input } from "antd";
+import { Row, Col, message, Input } from "antd";
 import { LoadingOutlined, AudioOutlined } from "@ant-design/icons";
 import { getBreedAPI } from "../../../helpers/api";
+
 import ExploreCard from "./ExploreCard";
 import "./style.css";
 
 const { Search } = Input;
 
-const postPerPage = 10;
-
 const ExploreContent = () => {
 	const [result, setResult] = useState(null);
 	const [breeds, setBreeds] = useState(null);
 	const [loading, setLoading] = useState(false);
-	const [currentPage, setCurrentPage] = useState(1);
 	const [search, setSearch] = useState("");
-	const [totalBreeds, setTotalBreeds] = useState(0);
 
 	useEffect(() => {
 		getDogsList();
@@ -23,18 +20,7 @@ const ExploreContent = () => {
 	useEffect(() => {
 		getContent();
 	}, [result]);
-	useEffect(() => {
-		displayContent(currentItems);
-	}, [currentPage]);
 
-	const suffix = (
-		<AudioOutlined
-			style={{
-				fontSize: 16,
-				color: "#1890ff",
-			}}
-		/>
-	);
 
 	// FETCH LIST OF BREEDS
 	const getDogsList = () => {
@@ -70,7 +56,7 @@ const ExploreContent = () => {
 				</div>
 			);
 		}
-		setTotalBreeds(dogBreed.length);
+		
 		setBreeds(dogBreed);
 	};
 
@@ -84,10 +70,10 @@ const ExploreContent = () => {
 	};
 
 	// DISPLAY BREEDS
-	const displayContent = (items) => {
+	const displayContent = () => {
 		const newSearch = search.toLowerCase();
-		if (items !== null) {
-			const filteredBreeds = items.filter((name) => {
+		if (breeds !== null) {
+			const filteredBreeds = breeds.filter((name) => {
 				return name.indexOf(newSearch) !== -1;
 			});
 			return filteredBreeds.map((name) => {
@@ -106,17 +92,6 @@ const ExploreContent = () => {
 		}
 	};
 
-	const indexOfLastItem = currentPage * postPerPage;
-	const indexOfFirstItem = indexOfLastItem - postPerPage;
-	const currentItems =
-		breeds &&
-		breeds !== null &&
-		breeds.slice(indexOfFirstItem, indexOfLastItem);
-
-	const changePagination = (page, pageNumber) => {
-		setCurrentPage(page);
-	};
-
 	return (
 		<div className="explore__content">
 			<Row justify="end">
@@ -128,21 +103,14 @@ const ExploreContent = () => {
 					/>
 				</Col>
 			</Row>
-			<Row gutter={12}>
+			<Row gutter={1}>
 				{loading ? (
 					<div className="loader">
 						<LoadingOutlined spin />
 					</div>
 				) : (
-					displayContent(currentItems)
+					displayContent()
 				)}
-				<Col lg={24} className="paginator">
-					<Pagination
-						defaultCurrent={1}
-						total={totalBreeds}
-						onChange={changePagination}
-					/>
-				</Col>
 			</Row>
 		</div>
 	);
